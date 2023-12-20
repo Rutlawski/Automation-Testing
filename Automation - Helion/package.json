@@ -1,0 +1,34 @@
+{
+  "name": "automation---helion",
+  "version": "1.0.0",
+  "description": "Automation practices on Helion page.",
+  "main": "index.js",
+  "scripts": {
+    "test": "wdio wdio.conf.ts",
+    "e2e": "wdio wdio.conf.ts --suite e2e",
+    "test1": "wdio wdio.conf.ts --suite test1",
+    "test2": "wdio wdio.conf.ts --suite test2"
+  },
+  "keywords": [
+    "automation",
+    "e2e",
+    "typescript",
+    "javascript",
+    "helion",
+    "webdriverio"
+  ],
+  "author": "Marek Ostrowski",
+  "license": "ISC",
+  "dependencies": {
+    "-": "^0.0.1",
+    "@wdio/cli": "^8.26.2",
+    "save-dev": "^0.0.1-security"
+  },
+  "devDependencies": {
+    "@wdio/local-runner": "^8.26.2",
+    "@wdio/mocha-framework": "^8.26.2",
+    "@wdio/spec-reporter": "^8.26.2",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.3"
+  }
+}
