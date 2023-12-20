@@ -1,0 +1,37 @@
+{
+  "name": "automatyzacja2",
+  "version": "1.0.0",
+  "description": "Sample automated tests",
+  "main": "index.js",
+  "scripts": {
+    "e2e": "wdio wdio.conf.ts",
+    "lesson1": "wdio wdio.conf.ts --suite lesson1",
+    "lesson2": "wdio wdio.conf.ts --suite lesson2",
+    "lesson3": "wdio wdio.conf.ts --suite lesson3",
+    "lesson4": "wdio wdio.conf.ts --suite lesson4",
+    "lesson5": "wdio wdio.conf.ts --suite lesson5",
+    "lesson6": "wdio wdio.conf.ts --suite lesson6",
+    "lesson7": "wdio wdio.conf.ts --suite lesson7"
+  },
+  "keywords": [
+    "automation",
+    "e2e",
+    "javascript",
+    "typescript",
+    "webdriverio"
+  ],
+  "author": "Marek Ostrowski",
+  "license": "ISC",
+  "dependencies": {
+    "-": "^0.0.1",
+    "@wdio/cli": "^8.26.0",
+    "save-dev": "^0.0.1-security"
+  },
+  "devDependencies": {
+    "@wdio/local-runner": "^8.26.0",
+    "@wdio/mocha-framework": "^8.24.12",
+    "@wdio/spec-reporter": "^8.24.12",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.3"
+  }
+}
