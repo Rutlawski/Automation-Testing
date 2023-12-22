@@ -7,7 +7,8 @@
     "test": "wdio wdio.conf.ts",
     "e2e": "wdio wdio.conf.ts --suite e2e",
     "test1": "wdio wdio.conf.ts --suite test1",
-    "test2": "wdio wdio.conf.ts --suite test2"
+    "test2": "wdio wdio.conf.ts --suite test2",
+    "test3": "wdio wdio.conf.ts --suite test3"
   },
   "keywords": [
     "automation",

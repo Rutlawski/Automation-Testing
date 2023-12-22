@@ -42,6 +42,9 @@ export const config: Options.Testrunner = {
         ],
         test2: [
             "./tests/specs/e2e/Test 2 - Adding a product.ts"
+        ],
+        test3: [
+            "./tests/specs/e2e/Test 3 - Add a book and check cart.ts"
         ]
 
     },
@@ -72,7 +75,10 @@ export const config: Options.Testrunner = {
     // https://saucelabs.com/platform/platform-configurator
     //
     capabilities: [{
-        browserName: 'chrome'
+        browserName: 'chrome',
+        // "goog:chromeOptions": {
+        //     args: ["--headless"]
+        // }
     }],
 
     //
