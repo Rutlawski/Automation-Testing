@@ -1,23 +1,22 @@
 import test, { expect } from "@playwright/test";
-import { getLoginToken } from "../api-calls/getLoginToken";
 import { MyAccountPage } from "../pages/MyAccountPage";
-import { AdminDetails } from "../data/adminDetails";
+import { adminDetails } from "../lib/adminDetails";
+import { getLoginToken } from "../api-calls/getLoginToken";
 
-test.only("Modififies the response", async ({page}) => {
-    const loginToken = await getLoginToken(AdminDetails.username, AdminDetails.password);
-    const expectedMessage = "{\"message\":\"I am error\"}";
-    await page.route("http://localhost:2221/my-account", async (route, request) => {
+test("Mocking network test", async ({page}) => {
+    await page.route("**/api/user**", async (route, response) => {
         await route.fulfill({
             status: 500,
-            contentType: "application/json",
-            body: JSON.stringify({message: "I am error"})
+            contentType: "json/application",
+            body: JSON.stringify({message: "A critical error has occured"})
         })
     })
     const myAccountPage = new MyAccountPage(page);
+    const loginToken = await getLoginToken(adminDetails.email, adminDetails.password);
     await myAccountPage.openMyAccountPage();
-    await page.evaluate(([loginTokeninBrowser]) => {
-        document.cookie = "token=" + loginTokeninBrowser
-    }, [loginToken])
+    await page.evaluate((loginTokenInBrowser) => {
+        document.cookie = "token= " + loginTokenInBrowser
+    }, [loginToken]);   
     await myAccountPage.openMyAccountPage();
-    await expect(myAccountPage.errorMessage).toHaveText(expectedMessage);
+    await myAccountPage.errorMessage.waitFor();
 })

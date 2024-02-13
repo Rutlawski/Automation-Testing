@@ -1,8 +1,9 @@
-const { default: test, expect } = require("@playwright/test");
-import { ProductPage } from "../pages/ProductPage";
+import test, { expect } from "@playwright/test";
+import { Homepage } from "../pages/Homepage";
+import { titles } from "../lib/titles";
 
-test.skip("Opens homepage and verifies", async ({ page }) => {
-    const productPage = new ProductPage(page);
-    await productPage.openHomepage();
-    await expect(page).toHaveTitle("Art Shopping Store");
+test("Opens homepage and verifies title", async ({page}) => {
+    const homepage = new Homepage(page);
+    await homepage.openHomepage();
+    await expect(page).toHaveTitle(titles.homepageTitle);
 })
