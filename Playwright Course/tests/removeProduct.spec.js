@@ -2,7 +2,7 @@ import test, { expect } from "@playwright/test";
 import { Homepage } from "../pages/Homepage";
 import { CartPage } from "../pages/CartPage";
 
-test("Remove product from cart and verify cart header", async ({page}) => {
+test.only("Remove product from cart and verify cart header", async ({page}) => {
     const homepage = new Homepage(page);
     const cartPage = new CartPage(page);
     await homepage.openHomepage();
@@ -11,5 +11,5 @@ test("Remove product from cart and verify cart header", async ({page}) => {
     const headerNumberBefore = await cartPage.getHeaderNumber();
     await cartPage.removeProductFromCart();
     const headerNumberAfter = await cartPage.getHeaderNumber();
-    // await expect(headerNumberAfter).toEqual(headerNumberBefore - 1);
+    // await expect(await cartPage.getHeaderNumber()).toEqual(headerNumberBefore - 1);
 })
